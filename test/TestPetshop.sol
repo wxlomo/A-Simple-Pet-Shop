@@ -5,4 +5,4 @@
  * Date: August 23, 2022
 */
 
- // Source code is not available to read yet before the semester ends (September 14).
+ // Source code is not available to read before the semester ends (September 14).

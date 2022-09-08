@@ -1,6 +1,6 @@
 # Simple Pet Shop: An Ethereum Decentralized Application
 
-**Source code is not available to read yet before the semester ends (September 14).**
+**Contract, test, and front-end code is not available to read before the semester ends (September 14).**
 
 <b>Description:</b><br>
 
