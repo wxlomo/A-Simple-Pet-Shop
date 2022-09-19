@@ -11,7 +11,7 @@ This folder includes a decentralized shopping web application developed based on
 - MetaMask [v10.18.3+] <br>
 - Ganache [v2.5.4+] <br>
 
-<b>Setup Instructions</b>
+<b>Setup Instructions:</b>
 
 Brief instructions for configuring the DApp are as follows:<br>
 1) Run the executable of Ganache and click the "Quickstart", please record the 12 words mnemonic seed phrase provided by Ganache.
