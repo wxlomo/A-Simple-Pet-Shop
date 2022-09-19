@@ -5,6 +5,192 @@
  * Date: August 20, 2022
 -->
 
-<!--
-Source code is not available to read before the semester ends (September 14).
--->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>A Simple Pet Shop</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="images/petshop.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="images/petshop.ico" type="image/x-icon">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        label {
+            width: 150px;
+            height: 25px;
+            text-align: left;
+            display: inline-block;
+        }
+        
+        select {
+            width: 179px;
+            height: 25px;
+            text-align: left;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="notification" style="position: fixed; right: 5px; bottom: 50px">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Notification</h3>
+            </div>
+            <div class="panel-body">
+                <span id="note">There are currently no notifications.</span>
+                <button id="closeNote" type="button">Close</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-push-2">
+            <h1 class="text-center"> 𓃩 A Simple Pet Shop</h2>
+                </br>
+        </div>
+    </div>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-4 col-lg-12">
+                    <h3>Pets</h3>
+                    <hr/>
+                </div>
+            </div>
+            <div id="petsRow" class="row">
+            </div>
+        </div>
+        <div id="petTemplate" style="display: none;">
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="panel panel-default panel-pet">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Scrappy</h3>
+                    </div>
+                    <div class="panel-body">
+                        <img alt="140x140" data-src="holder.js/140x140" class="img-rounded img-center" style="width: 100%;" src="images/golden-retriever.jpeg" data-holder-rendered="true"></br>
+                        </br>
+                        <strong>Breed</strong>: <span class="pet-breed">Golden Retriever</span></br>
+                        <strong>Age</strong>: <span class="pet-age">3</span></br>
+                        <strong>Location</strong>: <span class="pet-location">Warren, MI</span></br>
+                        <strong>Votes</strong>: <span class="pet-vote">0</span></br>
+                        </br>
+                        <strong>Price</strong>: <span class="pet-price">1</span> ETH</br>
+                        <button class="btn btn-default btn-adopt" type="button" data-id="0">Adopt</button>
+                        <button class="btn btn-default btn-buy-pet" type="button" data-id="0">Buy</button>
+                        <button class="btn btn-default btn-vote" type="button" data-id="0" ,id="vote">Vote</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-4 col-lg-12">
+                    <h3>Pet Supplies</h3>
+                    <hr/>
+                </div>
+            </div>
+            <div id="suppliesRow" class="row">
+            </div>
+        </div>
+        <div id="supplyTemplate" style="display: none;">
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="panel panel-default panel-supply">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Scrappy</h3>
+                    </div>
+                    <div class="panel-body">
+                        <img alt="140x140" data-src="holder.js/140x140" class="img-rounded img-center" style="width: 100%;" src="images/golden-retriever.jpeg" data-holder-rendered="true"></br>
+                        </br>
+                        <strong>Stock</strong>: <span class="supply-stock">100</span></br>
+                        </br>
+                        <strong>Price</strong>: <span class="supply-price">1</span> ETH</br>
+                        <button class="btn btn-default btn-buy-supply" type="button" data-id="0">Buy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-4 col-lg-12">
+                    <h3>Want to consign your pets with us?</h3>
+                    <hr/>
+                </div>
+            </div>
+            <div class="text-center">
+                <form onsubmit="javascript:App.handleAddPet(); return false;">
+                    <label for="newname">Name</label>
+                    <input type="text" id="newname" required/></br>
+                    <label for="newbreed">Breed</label>
+                    <input type="text" id="newbreed" required/></br>
+                    <label for="newage">Age</label>
+                    <input type="number" id="newage" required/></br>
+                    <label for="newlocation">Location</label>
+                    <input type="text" id="newlocation" required/></br>
+                    <label for="newprice">Price in ETH</label>
+                    <input type="number" id="newprice" required/></br>
+                    <label for="newimg">Image</label>
+                    <select id="newimg">
+                        <option value="images/scottish-terrier.jpeg">Scottish Terrier</option>
+                        <option value="images/french-bulldog.jpeg">French Bulldog</option>
+                        <option value="images/boxer.jpeg">Boxer</option>
+                        <option value="images/golden-retriever.jpeg">Golden Retriever</option>
+                    </select></br>
+                    </br>
+                    <input type="submit" value="Register (Fee: 1 ETH)" />
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-4 col-lg-12">
+                    <h3>Donate to support us!</h3>
+                    <hr/>
+                    <form style="text-align: center; " onsubmit="javascript:App.handleDonate(); return false;">
+                        <input type="number" required id="donate" placeholder="ETH Amount">
+                        <input type="submit" value="Donate" />
+                    </form>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    <div class="text-center">
+                        <p>There are <span id="userTotal">0</span> customers have been served, and <span id="ownPetTotal">0</span> pets find their owner!</p>
+                        </br>
+                        <p><strong>Copyright © 2022</strong> <a href="mailto:weixuan.yang@mail.utoronto.ca" style="color: black">Weixuan Yang</a>, <a href="mailto:zhong.ouyang@mail.utoronto.ca" style="color: black">Zhong Ouyang</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
