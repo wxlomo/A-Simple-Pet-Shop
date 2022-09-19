@@ -1,7 +1,5 @@
 # Simple Pet Shop: An Ethereum Decentralized Application
 
-**Contract, test, and front-end code is not available to read before the semester ends (September 14).**
-
 <b>Description:</b><br>
 
 This folder includes a decentralized shopping web application developed based on Truffle ["Pet Shop Tutorial"](https://trufflesuite.com/guides/pet-shop/). The application implemented multiple additional features and provided backend interfaces for several add-on features, achieving blockchain-wide real-time data display and response by on-chain event listening.
