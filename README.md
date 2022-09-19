@@ -37,7 +37,7 @@ Brief instructions for configuring the DApp are as follows:<br>
 8) The application interface should be available to use in the browser after confirming the connection of the MetaMask wallet.
 9) To get rid of the built files and reset the blockchain:
 ```
-    truffle networks –clean
+    truffle networks –-clean
 ```
 
 <br><b>Copyright © 2021 [Weixuan Yang](https://www.linkedin.com/in/weixuanyang/)</b>
